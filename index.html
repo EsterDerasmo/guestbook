@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Guestbook - A Casa di Gina</title>
+    <style>
+        /* Palette Colori A Casa di Gina */
+        :root {
+            --verde-ulivo: #6a7b4c; 
+            --terracotta: #cc785c;  
+            --crema-sfondo: #f9f8f4; 
+            --sfondo-card: #ffffff;
+            --testo-scuro: #333333;
+            --testo-chiaro: #666666;
+            --testo-inglese: #888888;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--crema-sfondo);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            color: var(--testo-scuro);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            padding: 40px 20px 15px;
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            font-family: 'Georgia', serif;
+            color: var(--terracotta);
+            font-size: 28px;
+            margin: 0 0 5px 0;
+        }
+
+        .header p {
+            color: var(--verde-ulivo);
+            font-size: 14px;
+            margin: 0 0 5px 0;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 500;
+        }
+
+        /* Stili per la lingua inglese */
+        .en-text {
+            color: var(--testo-inglese);
+            font-size: 0.9em;
+            display: block;
+            margin-top: 3px;
+        }
+
+        .en-titolo {
+            font-size: 0.65em;
+            color: var(--verde-ulivo);
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            text-transform: none;
+            letter-spacing: 0;
+            display: block;
+            margin-top: 4px;
+            font-weight: normal;
+        }
+
+        /* Contenitore principale */
+        .container {
+            max-width: 500px; 
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Design Card in stile App */
+        .card {
+            background-color: var(--sfondo-card);
+            border-radius: 16px;
+            padding: 25px 20px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border-top: 4px solid var(--terracotta);
+        }
+
+        .card-icona {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .card-contenuto h2 {
+            font-family: 'Georgia', serif;
+            color: var(--terracotta);
+            font-size: 24px;
+            margin: 0 0 12px 0;
+            line-height: 1.2;
+        }
+
+        .card-contenuto p {
+            font-size: 16px;
+            color: var(--testo-chiaro);
+            margin: 0 0 15px 0;
+        }
+
+        .sottotitolo-regole {
+            margin-bottom: 20px !important;
+        }
+
+        /* Password Box in evidenza */
+        .password-box {
+            background-color: var(--crema-sfondo);
+            border: 2px dashed var(--verde-ulivo);
+            color: var(--verde-ulivo);
+            font-size: 22px;
+            font-weight: bold;
+            padding: 12px 30px;
+            border-radius: 10px;
+            display: inline-block;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
+        /* Box info della colazione */
+        .nota {
+            background-color: rgba(106, 123, 76, 0.08);
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 15px !important;
+            color: var(--testo-scuro) !important;
+            border-left: 4px solid var(--verde-ulivo);
+            margin-top: 5px !important;
+            text-align: left;
+        }
+
+        /* Lista regole formattata per leggibilità su mobile */
+        .lista-regole {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+            width: 100%;
+        }
+
+        .lista-regole li {
+            background-color: var(--crema-sfondo);
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 15px;
+            color: var(--testo-scuro);
+            line-height: 1.4;
+        }
+
+        .lista-regole li:last-child {
+            margin-bottom: 0;
+        }
+
+        .lista-regole li strong {
+            color: var(--terracotta);
+            display: block;
+            margin-bottom: 6px;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 30px 20px 50px;
+            color: var(--testo-chiaro);
+            font-size: 14px;
+        }
+
+        .firma {
+            font-family: 'Georgia', serif;
+            color: var(--terracotta) !important;
+            font-size: 19px !important;
+            font-style: italic;
+            margin-top: 10px !important;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <img src="logo-gina.png" alt="Logo A Casa di Gina" class="logo">
+        <h1>Benvenuti a Casa!</h1>
+        <p>Tutte le info per il soggiorno<br><span class="en-text" style="text-transform: none; letter-spacing: 0;">All the info for your stay</span></p>
+    </header>
+
+    <main class="container">
+        
+        <section class="card">
+            <div class="card-icona">📶</div>
+            <div class="card-contenuto">
+                <h2>Connessione Wi-Fi <span class="en-titolo">Wi-Fi Connection</span></h2>
+                <p>Rimanete connessi! La password della nostra rete gratuita è:<br>
+                <span class="en-text">Stay connected! The password for our free network is:</span></p>
+                <div class="password-box">ester2019</div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-icona">☕</div>
+            <div class="card-contenuto">
+                <h2>La Colazione <span class="en-titolo">Breakfast</span></h2>
+                <p>Il buongiorno si vede dal mattino! La colazione viene servita dalle <strong>07:30 alle 10:00</strong>.<br>
+                <span class="en-text">A good day starts in the morning! Breakfast is served from <strong>07:30 to 10:00</strong>.</span></p>
+                
+                <div class="nota">
+                    <em>Piccola nota:</em> se preferite scendere dopo le ore 09:00, troverete la vostra colazione pronta ad aspettarvi nella <strong>cucina esterna</strong>.
+                    <span class="en-text" style="margin-top: 8px;"><em>Quick note:</em> if you prefer to come down after 09:00, you will find your breakfast ready and waiting in the <strong>outdoor kitchen</strong>.</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="card">
+            <div class="card-icona">🏡</div>
+            <div class="card-contenuto">
+                <h2>Regole della Casa <span class="en-titolo">House Rules</span></h2>
+                <p class="sottotitolo-regole">Piccoli accorgimenti per un soggiorno sereno:<br>
+                <span class="en-text">Small tips for a peaceful stay:</span></p>
+                
+                <ul class="lista-regole">
+                    <li>
+                        🚭 <strong>Divieto di fumo / No smoking</strong> 
+                        È severamente vietato fumare all'interno di tutte le camere.
+                        <span class="en-text">Smoking is strictly forbidden inside all rooms.</span>
+                    </li>
+                    <li>
+                        🪟 <strong>Finestre / Windows</strong> 
+                        Vi preghiamo di chiudere la finestra quando accendete il condizionatore.
+                        <span class="en-text">Please close the window when turning on the AC to keep the cool air inside.</span>
+                    </li>
+                    <li>
+                        💡 <strong>Risparmio energetico / Energy saving</strong> 
+                        Ricordatevi sempre di spegnere il condizionatore e le luci quando uscite.
+                        <span class="en-text">Always remember to turn off the AC and lights when leaving the room.</span>
+                    </li>
+                    <li>
+                        🚨 <strong>Sistema di Allarme / Alarm System</strong>
+                        Se le lucine sono accese l'allarme è inserito. Se le lucine sono spente, l'allarme è disinserito.
+                        <span class="en-text">If the small lights are on, the alarm is armed. If the lights are off, the alarm is disarmed.</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Grazie per la collaborazione, se avete bisogno di qualcosa chiedete, faremo del nostro meglio per soddisfare le vostre esigenze!<br>
+        <span class="en-text">Thank you for your collaboration. If you need anything, please ask, and we will do our best to meet your needs!</span></p>
+        <p class="firma">Lo staff Bed & Breakfast A Casa di Gina</p>
+    </footer>
+</body>
+</html>
